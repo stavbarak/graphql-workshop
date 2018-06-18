@@ -1,7 +1,21 @@
 import Store from '../../store';
 
 const postResolver = (obj, args, req) => {
-    return Store.getPost(args.id);
+    let posts;
+
+    if (args.id) {
+        posts = [Store.getPost(args.id)];
+    }
+    else if (args.authorId) {
+        posts = Store.getAuthorPosts(args.authorId);
+    }
+    else {
+        posts = Store.getPosts();
+    }
+
+    return {
+        items: posts,
+    };
 };
 
 export default postResolver;

@@ -1,9 +1,9 @@
 import blogResolver from '../../resolvers/blog/search';
 import { PostListType } from '../post/types';
 
-export default {
+export const BlogQuery = {
     blog: {
         type: PostListType,
         resolve: blogResolver,
-    }
-}
+    },
+};

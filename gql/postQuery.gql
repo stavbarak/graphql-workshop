@@ -1,0 +1,17 @@
+query PostQuery ($id: Int, $authorId: Int) {
+   post (id: $id, authorId: $authorId) {
+    	items {
+            id
+            title
+            tags
+            categories
+            author {
+                items {
+                    id
+                    name
+                    company
+                }
+            }
+		}
+    }
+}

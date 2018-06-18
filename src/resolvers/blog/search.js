@@ -2,7 +2,7 @@ import Store from '../../store';
 
 const blogResolver = () => {
     return {
-        posts: Store.getPosts(),
+        items: Store.getPosts(),
     };
 };
 

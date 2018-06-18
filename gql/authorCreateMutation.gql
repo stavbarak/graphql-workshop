@@ -1,0 +1,7 @@
+mutation AuthorCreateMutation ($input: AuthorCreateType) {
+    createAuthor (input: $input) {
+        id
+        name
+        company
+    }
+}

@@ -1,0 +1,9 @@
+query AuthorQuery ($authorId: Int) {
+    author(id: $authorId) {
+        items {
+            id
+            name
+            company
+        }
+    }
+}

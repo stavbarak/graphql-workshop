@@ -1,7 +1,7 @@
 const posts = {
   "234": {
     id: 234,
-    author: "author/2",
+    author: 2,
     categories: ["Software Engineering"],
     publishDate: "2016/03/27 14:01",
     summary: "...",
@@ -10,7 +10,7 @@ const posts = {
   },
   "456": {
     id: 456,
-    author: "author/4",
+    author: 4,
     categories: ["Software Engineering"],
     publishDate: "2016/03/27 14:02",
     summary: "...",
@@ -19,7 +19,7 @@ const posts = {
   },
   "17": {
     id: 17,
-    author: "author/7",
+    author: 7,
     categories: ["Software Engineering"],
     publishDate: "2016/03/27 14:03",
     summary: "...",
@@ -28,7 +28,7 @@ const posts = {
   },
   "872": {
     id: 872,
-    author: "author/4",
+    author: 4,
     categories: ["Software Engineering"],
     publishDate: "2016/03/27 14:04",
     summary: "...",
@@ -37,7 +37,7 @@ const posts = {
   },
   "642": {
     id: 642,
-    author: "author/8",
+    author: 8,
     categories: ["Software Engineering"],
     publishDate: "2016/03/27 14:05",
     summary: "...",
@@ -46,7 +46,7 @@ const posts = {
   },
   "56": {
     id: 56,
-    author: "author/7",
+    author: 7,
     categories: ["Software Engineering"],
     publishDate: "2016/03/27 14:06",
     summary: "...",
@@ -55,7 +55,7 @@ const posts = {
   },
   "21": {
     id: 21,
-    author: "author/9",
+    author: 9,
     categories: ["Software Engineering"],
     publishDate: "2016/03/27 14:07",
     summary: "...",
@@ -64,7 +64,7 @@ const posts = {
   },
   "73": {
     id: 73,
-    author: "author/9",
+    author: 9,
     categories: ["Software Engineering"],
     publishDate: "2016/03/27 14:08",
     summary: "...",
@@ -73,7 +73,7 @@ const posts = {
   },
   "943": {
     id: 943,
-    author: "author/4",
+    author: 4,
     categories: ["Software Engineering"],
     publishDate: "2016/03/27 14:09",
     summary: "...",
@@ -82,7 +82,7 @@ const posts = {
   },
   "856": {
     id: 856,
-    author: "author/4",
+    author: 4,
     categories: ["Software Engineering"],
     publishDate: "2016/03/27 14:10",
     summary: "...",
@@ -125,14 +125,31 @@ const authors = {
 };
 
 
-const getPost = (id) => posts[id];
 const getPosts = () => Object.keys(posts).map(key => posts[key]);
-const getAuthor = (id) => authors[id];
+const getPost = (id) => posts[id];
 const getAuthors = () => Object.keys(authors).map(key => authors[key]);
+const getAuthor = (id) => authors[id];
+const getAuthorPosts = (authorId) => {
+    const r = Object.values(posts)
+        .filter(post => post.author === authorId);
+    return r;
+};
+const createAuthor = (author) => {
+    const id = Object.values(authors)
+        .map(author => author.id)
+        .reduce((acc, id) => id > acc ? id : acc, 0);
+    const authorToCreate = Object.assign({}, author, {
+        id: id + 1,
+    });
+    authors[authorToCreate.id] = authorToCreate;
+    return authorToCreate;
+};
 
 export default {
     getPost,
     getPosts,
     getAuthor,
+    getAuthorPosts,
     getAuthors,
+    createAuthor,
 }

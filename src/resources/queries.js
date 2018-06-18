@@ -1,7 +1,7 @@
 import { GraphQLObjectType } from 'graphql';
-import AuthorQuery from './author/queries';
-import PostQuery from './post/queries';
-import BlogQuery from './blog/queries';
+import { AuthorQuery } from './author/queries';
+import { PostQuery } from './post/queries';
+import { BlogQuery } from './blog/queries';
 
 const QueryType = new GraphQLObjectType({
     name: 'QueryType',

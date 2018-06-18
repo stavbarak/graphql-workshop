@@ -1,15 +1,15 @@
 import { GraphQLInt } from 'graphql';
-import { AuthorType } from './types';
+import { AuthorListType } from './types';
 import authorResolver from '../../resolvers/author/search';
 
-export default {
+export const AuthorQuery = {
     author: {
-        type: AuthorType,
+        type: AuthorListType,
         args: {
             id: {
                 type: GraphQLInt,
-            }
+            },
         },
         resolve: authorResolver,
-    }
-}
+    },
+};

@@ -4,7 +4,7 @@ import {
     GraphQLString,
     GraphQLList,
 } from 'graphql';
-import { AuthorType } from '../author/types';
+import { AuthorListType } from '../author/types';
 import authorResolver from '../../resolvers/author/search';
 
 export const PostType = new GraphQLObjectType({
@@ -29,12 +29,9 @@ export const PostType = new GraphQLObjectType({
             type: GraphQLString,
         },
         author: {
-            type: AuthorType,
-            resolve: (obj) => {
-                const authorId = obj.author.split("/")[1];
-                return authorResolver(obj, {id: authorId});
-            }
-        }
+            type: AuthorListType,
+            resolve: obj => authorResolver(obj, {id: obj.author}),
+        },
     },
 });
 
@@ -42,7 +39,7 @@ export const PostListType = new GraphQLObjectType({
     name: 'PostListType',
     description: 'List of posts',
     fields: {
-        posts: {
+        items: {
             type: new GraphQLList(PostType),
         },
     },

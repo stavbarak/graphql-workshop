@@ -12,10 +12,13 @@
   "author": "Eric Baer",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "cors": "^2.8.3",
     "express": "^4.14.1",
     "express-graphql": "^0.6.3",
     "graphql": "^0.10.3",
+    "graphql-server-express": "^1.4.0",
+    "graphql-tools": "^4.0.4",
     "nodemon": "^1.11.0",
     "uuid": "^3.2.1"
   },

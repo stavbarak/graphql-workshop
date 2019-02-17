@@ -1,5 +1,5 @@
-mutation AuthorCreateMutation ($input: AuthorCreateType) {
-    createAuthor (input: $input) {
+mutation createAuthorMutation ($name: String!, $company: String!) {
+    createAuthor (name: $name, company: $company) {
         id
         name
         company

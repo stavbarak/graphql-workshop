@@ -13,9 +13,7 @@ const postResolver = (obj, args, req) => {
         posts = Store.getPosts();
     }
 
-    return {
-        items: posts,
-    };
+    return posts;
 };
 
 export default postResolver;

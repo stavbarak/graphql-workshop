@@ -1,7 +1,7 @@
 import Store from '../../store';
 
-export const authorCreateResolver = (obj, args, req) => {
-    return Store.createAuthor(args.input);
+export const authorCreateResolver = (obj, author, req) => {
+    return Store.createAuthor(author);
 };
 
 export default authorCreateResolver;

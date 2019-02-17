@@ -8,9 +8,7 @@ const authorResolver = (obj, args, req) => {
         authors = Store.getAuthors();
     }
 
-    return {
-        items: authors,
-    }
+    return authors;
 };
 
 export default authorResolver;

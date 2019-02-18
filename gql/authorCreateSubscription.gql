@@ -1,0 +1,7 @@
+subscription authorCreateSubscription {
+  authorAdded {
+    id
+    name
+    company
+  }
+}

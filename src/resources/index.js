@@ -25,6 +25,11 @@ const typeDefs = `
     type Mutation {
         createAuthor(name: String!, company: String!): Author
     }
+
+    # The subscription root type, specifying what we can subscribe to
+    type Subscription {
+        authorAdded: Author
+    }
 `;
 
 export default typeDefs;

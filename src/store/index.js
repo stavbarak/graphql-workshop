@@ -6,7 +6,8 @@ const posts = {
     publishDate: "2016/03/27 14:01",
     summary: "...",
     tags: ["GraphQl", "API"],
-    title: "Contemporary API Design"
+    title: "Contemporary API Design",
+    votes: 0
   },
   "456": {
     id: 456,
@@ -15,7 +16,8 @@ const posts = {
     publishDate: "2016/03/27 14:02",
     summary: "...",
     tags: ["Redux", "React", "redux-little-router"],
-    title: "Let The URL Do The Talking"
+    title: "Let The URL Do The Talking",
+    votes: 0
   },
   "17": {
     id: 17,
@@ -24,7 +26,8 @@ const posts = {
     publishDate: "2016/03/27 14:03",
     summary: "...",
     tags: ["HTTP/2", "Interlock", "compilers"],
-    title: "HTTP/2 Server Push"
+    title: "HTTP/2 Server Push",
+    votes: 0
   },
   "872": {
     id: 872,
@@ -33,7 +36,8 @@ const posts = {
     publishDate: "2016/03/27 14:04",
     summary: "...",
     tags: ["React", "Freactal", "state management"],
-    title: "Don't Fear The Fractal: Infinite State Composition With Freactal"
+    title: "Don't Fear The Fractal: Infinite State Composition With Freactal",
+    votes: 0
   },
   "642": {
     id: 642,
@@ -42,7 +46,8 @@ const posts = {
     publishDate: "2016/03/27 14:05",
     summary: "...",
     tags: ["OSS", "documentation", "design"],
-    title: "Your Docs And You: A Guide For Your First OSS Portfolio"
+    title: "Your Docs And You: A Guide For Your First OSS Portfolio",
+    votes: 0
   },
   "56": {
     id: 56,
@@ -51,7 +56,8 @@ const posts = {
     publishDate: "2016/03/27 14:06",
     summary: "...",
     tags: ["React", "Rapscallion", "server side rendering"],
-    title: "Faster React SSR With Rapscallion"
+    title: "Faster React SSR With Rapscallion",
+    votes: 0
   },
   "21": {
     id: 21,
@@ -60,7 +66,8 @@ const posts = {
     publishDate: "2016/03/27 14:07",
     summary: "...",
     tags: ["OSS", "career"],
-    title: "On Releasing My First OSS Project At Thirty-Five"
+    title: "On Releasing My First OSS Project At Thirty-Five",
+    votes: 0
   },
   "73": {
     id: 73,
@@ -69,7 +76,8 @@ const posts = {
     publishDate: "2016/03/27 14:08",
     summary: "...",
     tags: ["Node", "performance", "monitoring"],
-    title: "Introducing NodeJS-Dashboard"
+    title: "Introducing NodeJS-Dashboard",
+    votes: 0
   },
   "943": {
     id: 943,
@@ -78,7 +86,8 @@ const posts = {
     publishDate: "2016/03/27 14:09",
     summary: "...",
     tags: ["React", "redux-little-router", "routers"],
-    title: "Introducing Nested Routing In Redux Little Router"
+    title: "Introducing Nested Routing In Redux Little Router",
+    votes: 0
   },
   "856": {
     id: 856,
@@ -87,7 +96,8 @@ const posts = {
     publishDate: "2016/03/27 14:10",
     summary: "...",
     tags: ["Browsers", "HTTP"],
-    title: "The Only Correct Script Loader Ever Made"
+    title: "The Only Correct Script Loader Ever Made",
+    votes: 0
   }
 };
 
@@ -144,6 +154,14 @@ const createAuthor = (author) => {
     authors[authorToCreate.id] = authorToCreate;
     return authorToCreate;
 };
+const postUpvote = ({id}) => {
+    const post = getPost(id);
+    const postToUpvote = Object.assign({}, post, {
+        votes: post.votes + 1,
+    });
+    posts[id] = postToUpvote;
+    return postToUpvote;
+}
 
 export default {
     getPost,
@@ -152,4 +170,5 @@ export default {
     getAuthorPosts,
     getAuthors,
     createAuthor,
+    postUpvote,
 }

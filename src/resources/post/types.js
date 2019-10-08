@@ -9,7 +9,7 @@ import authorResolver from '../../resolvers/author/search';
 
 export const PostType = new GraphQLObjectType({
     name: "Post",
-    fields: {
+    fields: () => ({
         id: {
             type: GraphQLInt,
         },
@@ -32,7 +32,7 @@ export const PostType = new GraphQLObjectType({
             type: AuthorListType,
             resolve: obj => authorResolver(obj, {id: obj.author}),
         },
-    },
+    }),
 });
 
 export const PostListType = new GraphQLObjectType({

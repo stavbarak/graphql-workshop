@@ -1,4 +1,4 @@
-query AuthorQuery ($authorId: Int) {
+query AuthorQuery ($authorId: Int!) {
     author(id: $authorId) {
         items {
             id

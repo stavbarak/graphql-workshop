@@ -1,4 +1,4 @@
-mutation AuthorCreateMutation ($input: AuthorCreateType) {
+mutation AuthorCreateMutation ($input: AuthorCreateType!) {
     createAuthor (input: $input) {
         id
         name

@@ -1,0 +1,14 @@
+fragment postFragment on Post {
+    id
+    title
+    tags
+    categories
+    votes
+    author {
+        items {
+            id
+            name
+            company
+        }
+    }
+}

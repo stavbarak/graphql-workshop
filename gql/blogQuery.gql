@@ -1,15 +1,13 @@
 query BlogQuery {
     blog {
-        items {
+        id
+        title
+        tags
+        categories
+        author {
             id
-            title
-            tags
-            categories
-            author {
-                id
-                name
-                company
-            }
+            name
+            company
         }
     }
 }

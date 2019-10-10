@@ -5,10 +5,8 @@ fragment postFragment on Post {
     categories
     votes
     author {
-        items {
-            id
-            name
-            company
-        }
+        id
+        name
+        company
     }
 }

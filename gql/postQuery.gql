@@ -2,8 +2,6 @@
 
 query PostQuery ($id: Int, $authorId: Int) {
    post (id: $id, authorId: $authorId) {
-    	items {
-            ...postFragment
-		}
+        ...postFragment
     }
 }

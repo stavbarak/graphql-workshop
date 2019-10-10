@@ -1,10 +1,10 @@
-import { GraphQLInt } from 'graphql';
-import { PostListType } from './types';
+import { GraphQLInt, GraphQLList } from 'graphql';
+import { PostType } from './types';
 import postResolver from '../../resolvers/post/search';
 
 export const PostQuery = {
     post: {
-        type: PostListType,
+        type: new GraphQLList(PostType),
         args: {
             id: {
                 type: GraphQLInt,

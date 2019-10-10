@@ -6,7 +6,7 @@ import {
     GraphQLInputObjectType,
     GraphQLNonNull,
 } from 'graphql';
-import { AuthorListType } from '../author/types';
+import { AuthorType } from '../author/types';
 import authorResolver from '../../resolvers/author/search';
 import { GraphQLID } from 'graphql/type';
 
@@ -35,20 +35,10 @@ export const PostType = new GraphQLObjectType({
             type: GraphQLInt
         },
         author: {
-            type: AuthorListType,
+            type: new GraphQLList(AuthorType),
             resolve: obj => authorResolver(obj, {id: obj.author}),
         },
     }),
-});
-
-export const PostListType = new GraphQLObjectType({
-    name: 'PostListType',
-    description: 'List of posts',
-    fields: {
-        items: {
-            type: new GraphQLList(PostType),
-        },
-    },
 });
 
 export const PostUpvoteType = new GraphQLInputObjectType({

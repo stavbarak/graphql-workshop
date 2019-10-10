@@ -1,9 +1,10 @@
+import { GraphQLList } from 'graphql';
 import blogResolver from '../../resolvers/blog/search';
-import { PostListType } from '../post/types';
+import { PostType } from '../post/types';
 
 export const BlogQuery = {
     blog: {
-        type: PostListType,
+        type: new GraphQLList(PostType),
         resolve: blogResolver,
     },
 };

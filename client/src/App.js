@@ -6,7 +6,10 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 
 const client = new ApolloClient({
-    uri: 'http://localhost:5000',
+    // gql express server
+    // uri: 'http://localhost:5000',
+    // apollo server
+    uri: 'http://localhost:4000',
 });
 
 function App() {

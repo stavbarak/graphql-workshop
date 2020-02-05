@@ -9,7 +9,7 @@ const PORT = 5000;
 app.use(cors());
 
 const DepthLimitRule = depthLimit(
-    4,
+    3,
     { ignore: [ 'whatever', 'trusted' ] },
     depths => console.log(depths)
   )

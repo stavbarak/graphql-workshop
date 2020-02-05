@@ -4,7 +4,7 @@ import resolvers from './resolvers';
 import typeDefs from './resources';
 
 const validationRules = [
-    depthLimit(4),
+    depthLimit(3),
 ];
 
 const server = new ApolloServer({

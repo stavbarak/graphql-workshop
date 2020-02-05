@@ -1,0 +1,11 @@
+query PostListQuery {
+    post {
+        id
+        title
+        votes
+        author {
+            id
+            name
+        }
+    }
+}

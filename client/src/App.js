@@ -1,7 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Test from './components/Test';
+import { PostList } from './components';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 
@@ -16,7 +15,7 @@ function App() {
   return (
     <div className="App">
         <ApolloProvider client={client}>
-            <Test />
+            <PostList />
         </ApolloProvider>
     </div>
   );

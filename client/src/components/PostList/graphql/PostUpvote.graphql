@@ -1,7 +1,0 @@
-mutation($id: Int!) {
-  postUpvote (id: $id) {
-    id
-    title
-    votes
-  }
-}

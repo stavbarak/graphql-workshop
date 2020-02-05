@@ -1,29 +1,22 @@
 import React from 'react';
-import { loader } from 'graphql.macro';
-import { useQuery, useMutation } from '@apollo/react-hooks';
 import ThumbUp from '@material-ui/icons/ThumbUp';
 
+import useGetPostListQuery from '../../hooks/useGetPostListQuery';
+import usePostUpvoteMutation from '../../hooks/usePostUpvoteMutation';
 import Styled from './styled-components';
-
-const getPostListQuery = loader('./graphql/GetPostList.graphql');
-const postUpvoteMutation = loader('./graphql/PostUpvote.graphql');
 
 const PostList = () => {
     const {
         loading,
         error,
         data,
-        refetch: refetchPostList
-    } = useQuery(getPostListQuery);
-
-    const [postUpvote] = useMutation(
-        postUpvoteMutation,
+        refetch: postListQueryRefetch,
+    } = useGetPostListQuery();
+    const [postUpvote] = usePostUpvoteMutation(
         {
-            refetchQueries: [
-                {
-                    query: getPostListQuery
-                }
-            ],
+            onCompleted: () => {
+                postListQueryRefetch();
+            },
         }
     );
 
@@ -39,11 +32,11 @@ const PostList = () => {
     return (
         <Styled.Container>
             {post.map(post => (
-                <Styled.Post>
+                <Styled.Post key={post.id}>
                     <Styled.PostTitle>{post.title}</Styled.PostTitle>
                     <Styled.Author>
                         {post.author.map(author => (
-                            <Styled.AuthorItem>{author.name}</Styled.AuthorItem>
+                            <Styled.AuthorItem key={author.id}>{author.name}</Styled.AuthorItem>
                         ))}
                     </Styled.Author>
                     <Styled.PostVotes>Votes: {post.votes}</Styled.PostVotes>

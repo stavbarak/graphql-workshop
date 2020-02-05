@@ -6,9 +6,9 @@ import { ApolloProvider } from '@apollo/react-hooks';
 
 const client = new ApolloClient({
     // gql express server
-    uri: 'http://localhost:5000',
+    // uri: 'http://localhost:5000',
     // apollo server
-    // uri: 'http://localhost:4000',
+    uri: 'http://localhost:4000',
 });
 
 function App() {

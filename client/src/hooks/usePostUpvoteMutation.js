@@ -2,8 +2,8 @@ import { gql } from 'apollo-boost';
 import { useMutation } from '@apollo/react-hooks';
 
 const POST_UPVOTE = gql`
-    mutation($input: PostUpvoteType!) {
-        postUpvote (input: $input) {
+    mutation($id: Int!) {
+        postUpvote (id: $id) {
             id
             title
             votes

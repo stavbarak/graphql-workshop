@@ -26,7 +26,7 @@ const PostList = () => {
     const { post } = data;
 
     const upVote = (postId) => {
-        postUpvote({ variables: { input: { id: postId }}});
+        postUpvote({ variables: { id: postId }});
     }
 
     return (

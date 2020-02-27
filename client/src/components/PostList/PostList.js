@@ -6,27 +6,8 @@ import usePostUpvoteMutation from '../../hooks/usePostUpvoteMutation';
 import Styled from './styled-components';
 
 const PostList = () => {
-    const {
-        loading,
-        error,
-        data,
-        refetch: postListQueryRefetch,
-    } = useGetPostListQuery();
-    const [postUpvote] = usePostUpvoteMutation(
-        {
-            onCompleted: () => {
-                postListQueryRefetch();
-            },
-        }
-    );
-
-    if (loading) return 'Loading...';
-    if (error) return `Error! ${error.message}`;
-
-    const { post } = data;
 
     const upVote = (postId) => {
-        postUpvote({ variables: { id: postId }});
     }
 
     return (

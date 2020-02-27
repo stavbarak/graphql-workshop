@@ -1,5 +1,11 @@
 import Store from '../../store';
 
+/**
+ *
+ * if args.id - return post by id as list
+ * if args.authorId - return all posts by authorId
+ * else return all posts
+ */
 const postResolver = (obj, args, req) => {
     let posts;
 

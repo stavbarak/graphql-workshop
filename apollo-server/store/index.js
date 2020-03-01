@@ -162,6 +162,16 @@ const posts = {
       posts[id] = postToUpvote;
       return postToUpvote;
   }
+  const createPost = (newPost) => {
+    const id = Object.values(posts)
+        .map(post => post.id)
+        .reduce((acc, id) => id > acc ? id : acc, 0);
+    const postToCreate = Object.assign({}, newPost, {
+        id: id + 1,
+    });
+    posts[postToCreate.id] = postToCreate;
+    return postToCreate;
+  }
 
   export default {
       getPost,
@@ -170,5 +180,6 @@ const posts = {
       getAuthorPosts,
       getAuthors,
       createAuthor,
+      createPost,
       postUpvote,
   }

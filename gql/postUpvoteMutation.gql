@@ -1,0 +1,7 @@
+#import './postFragment'
+
+mutation ($input: PostUpvoteType!) {
+  postUpvote(input: $input) {
+    ...postFragment
+  }
+}

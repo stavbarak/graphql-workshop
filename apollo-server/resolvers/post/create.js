@@ -1,6 +1,5 @@
 import Store from '../../store';
 
-
 /**
  * create new author
  */

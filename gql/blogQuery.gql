@@ -1,0 +1,13 @@
+query BlogQuery {
+    blog {
+        id
+        title
+        tags
+        categories
+        author {
+            id
+            name
+            company
+        }
+    }
+}

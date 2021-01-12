@@ -1,5 +1,5 @@
-query AuthorsQuery ($authorId: Int) {
-    authors(id: $authorId) {
+query AuthorQuery ($authorId: Int) {
+    author(id: $authorId) {
         id
         name
         company

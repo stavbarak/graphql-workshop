@@ -4,7 +4,6 @@ import resolvers from './resolvers';
 import typeDefs from './resources';
 import { PubSub } from 'apollo-server';
 
-
 const validationRules = [
     depthLimit(3),
 ];

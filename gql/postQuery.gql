@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 query PostsQuery ($id: Int, $authorId: Int) {
     posts (id: $id, authorId: $authorId) {
         id
@@ -11,5 +12,12 @@ query PostsQuery ($id: Int, $authorId: Int) {
             name
             company
         }
+=======
+#import './postFragment'
+
+query PostQuery ($id: Int, $authorId: Int) {
+   post (id: $id, authorId: $authorId) {
+        ...postFragment
+>>>>>>> b5e0075a99008c75ed3759eab5baa6e620708861
     }
 }

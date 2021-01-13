@@ -6,7 +6,7 @@ import Store from '../../store';
  * if args.authorId - return all posts by authorId
  * else return all posts
  */
-const postResolver = (obj, args, req) => {
+const postResolver = (_, args, ctx) => {
     let posts;
 
     if (args.id) {

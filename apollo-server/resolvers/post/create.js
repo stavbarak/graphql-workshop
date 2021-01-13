@@ -3,7 +3,7 @@ import Store from '../../store';
 /**
  * create new author
  */
-export const postCreateResolver = (obj, post, req) => {
+export const postCreateResolver = (_, post, ctx) => {
     console.log(post);
 
     const authorList = Store.getAuthors()
@@ -30,9 +30,8 @@ export const postCreateResolver = (obj, post, req) => {
     delete postToCreate.authorCompany;
     delete postToCreate.authorName;
 
-    
     const postCreated = Store.createPost(postToCreate);
-    req.pubSub.publish(req.topics.POST_ADDED, { postCreated });
+    ctx.pubSub.publish(ctx.topics.POST_ADDED, { postAdded: postCreated });
     return postCreated;
 };
 

@@ -3,7 +3,7 @@ import Store from '../../store';
 /**
  * create new author
  */
-export const authorCreateResolver = (obj, author, req) => {
+export const authorCreateResolver = (_, author, ctx) => {
     return Store.createAuthor(author);
 };
 

@@ -5,8 +5,8 @@ import useGetPostListQuery from '../../hooks/useGetPostListQuery';
 import usePostUpvoteMutation from '../../hooks/usePostUpvoteMutation';
 import useCreatePostMutation from '../../hooks/useCreatePostMutation';
 import Styled from './styled-components';
-import {gql} from "apollo-boost";
-import {useSubscription} from "@apollo/react-hooks";
+import { gql } from "apollo-boost";
+import { useSubscription } from "@apollo/react-hooks";
 
 
 const POST_ADDED_SUBSCRIPTION = gql`
@@ -30,11 +30,13 @@ const PostList = () => {
         POST_ADDED_SUBSCRIPTION
     );
 
+    const newPostTitle = data2?.postAdded?.title;
+
     const listener = useCallback(() => {
-        if (!loading2 && data2?.postAdded?.title) {
-            window.alert(`New post added ${data2?.postAdded.title}`)
+        if (!loading2 && newPostTitle) {
+            window.alert(`New post added ${newPostTitle}`)
         }
-    }, [data2?.postAdded.title])
+    }, [newPostTitle, loading2])
 
     listener()
 

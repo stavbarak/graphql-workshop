@@ -4,19 +4,9 @@ import ThumbUp from '@material-ui/icons/ThumbUp';
 import useGetPostListQuery from '../../hooks/useGetPostListQuery';
 import usePostUpvoteMutation from '../../hooks/usePostUpvoteMutation';
 import useCreatePostMutation from '../../hooks/useCreatePostMutation';
+import usePostAddedSubscription from '../../hooks/usePostAddedSubscription';
 import Styled from './styled-components';
-import { gql } from "apollo-boost";
-import { useSubscription } from "@apollo/react-hooks";
 
-
-const POST_ADDED_SUBSCRIPTION = gql`
-    subscription PostAddedSubscription {
-        postAdded {
-            id
-            title
-        }
-    }
-`;
 
 const PostList = () => {
     const {
@@ -26,9 +16,8 @@ const PostList = () => {
         refetch: postListQueryRefetch,
     } = useGetPostListQuery();
 
-    const {data: postAddedData, loading: postAddedLoading} = useSubscription(
-        POST_ADDED_SUBSCRIPTION
-    );
+
+    const {data: postAddedData, loading: postAddedLoading} = usePostAddedSubscription();
 
     const newPostTitle = postAddedData?.postAdded?.title;
 

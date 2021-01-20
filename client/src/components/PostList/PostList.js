@@ -26,17 +26,17 @@ const PostList = () => {
         refetch: postListQueryRefetch,
     } = useGetPostListQuery();
 
-    const {data: data2, loading: loading2} = useSubscription(
+    const {data: postAddedData, loading: postAddedLoading} = useSubscription(
         POST_ADDED_SUBSCRIPTION
     );
 
-    const newPostTitle = data2?.postAdded?.title;
+    const newPostTitle = postAddedData?.postAdded?.title;
 
     const listener = useCallback(() => {
-        if (!loading2 && newPostTitle) {
+        if (!postAddedLoading && newPostTitle) {
             window.alert(`New post added ${newPostTitle}`)
         }
-    }, [newPostTitle, loading2])
+    }, [newPostTitle, postAddedLoading])
 
     listener()
 
